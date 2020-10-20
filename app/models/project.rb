@@ -1,11 +1,11 @@
 class Project < ApplicationRecord
   belongs_to :tenant
 
-  validades :title, uniqueness: true
+  validates :title, uniqueness: true
 
   validate :free_plan_can_only_have_one_project
 
-  def self.by_plan_and_tenant(tenant_id
+  def self.by_plan_and_tenant(tenant_id)
     tenant = Tenant.find(tenant_id)
     if tenant.plan == 'premium'
       tenant.projects

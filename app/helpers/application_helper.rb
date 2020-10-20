@@ -15,7 +15,7 @@ module ApplicationHelper
 
       tag_class = options.extract!(:class)[:class]
       tag_options = {
-        class: "alert fade in alert-#{type} #{tag_class}"
+        class: "alert alert-#{type} alert-dismissible fade show #{tag_class}"
       }.merge(options)
 
       close_button = content_tag(:button, raw("&times;"), type: "button", class: "close", "data-dismiss" => "alert")
@@ -26,5 +26,9 @@ module ApplicationHelper
       end
     end
     flash_messages.join("\n").html_safe
+  end
+
+  def tenant_name(tenant_id)
+    Tenant.find(tenant_id).name
   end
 end
