@@ -1,7 +1,7 @@
 class Artifact < ApplicationRecord
   MAX_FILESIZE = 10.megabytes
   
-  attr_acsessor :upload
+  attr_accessor :upload
 
   belongs_to :project
 
