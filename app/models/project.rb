@@ -13,13 +13,13 @@ class Project < ApplicationRecord
       if user.is_admin?
         tenant.projects
       else
-        user.projects.where(tenant_id: tenant.id)
+        user.project.where(tenant_id: tenant.id)
       end
     else
       if user.is_admin?
         tenant.projects.order(:id).limit(1)
       else
-        user.projects.where(tenant_id: tenant.id).order(:id).limit(1)
+        user.project.where(tenant_id: tenant.id).order(:id).limit(1)
       end
     end
   end
