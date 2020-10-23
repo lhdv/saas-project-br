@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_one :member, dependent: :destroy
   has_many :user_projects
-  has_many :project, through: :user_projects
+  has_many :projects, through: :user_projects
 
   def is_admin?
     is_admin
